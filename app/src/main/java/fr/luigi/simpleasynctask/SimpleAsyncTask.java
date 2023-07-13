@@ -21,15 +21,13 @@ public class SimpleAsyncTask extends AsyncTask<Void, Integer, String> {
         Random r = new Random();
         int n = r.nextInt(11);
         int s = n * 200;
-        int sleptTimeProgress = 0;
-        for (int i = 0; i < 10; i += 1) {
+        for (int i = 0; i < 100; i += 1) {
             try {
-                Thread.sleep(s / 10);
+                Thread.sleep(s / 100);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            sleptTimeProgress += 10;
-            publishProgress(sleptTimeProgress);
+            publishProgress(i+1);
         }
         return "Enfin réveillé après avoir dormi pendant " + s + " millisecondes !";
     }
